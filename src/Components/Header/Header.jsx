@@ -52,7 +52,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         },
     },
 }));
-
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
+    '& .MuiToolbar-root': {
+        paddingRight: 12
+    },
+}));
 
 export default function Header() {
     const dispatch = useDispatch()
@@ -67,36 +71,16 @@ export default function Header() {
     const check = useSelector((state) => state.openDrawer.check)
 
     return (
-        <AppBar position="static">
+        <StyledAppBar position="fixed">
             <Toolbar>
-                <IconButton
-                    color="inherit"
-                >
-                    <PersonIcon />
-                </IconButton>
-                <Search >
-                    <SearchIconWrapper >
-                        <SearchIcon />
-                    </SearchIconWrapper>
-                    <StyledInputBase
-                        placeholder="Search…"
-                        inputProps={{ 'aria-label': 'search' }}
-                    />
-                </Search>
-                <Box sx={{ flexGrow: 1 }}>
 
-                </Box>
-
-                <Typography variant="h6" component="div" >
-                    مدیریت وبلاگ شخصی
-                </Typography>
                 {check ?
                     <IconButton
                         size="large"
                         edge="start"
                         color="inherit"
                         aria-label="menu"
-                        sx={{ mx: 2 }}
+                        sx={{ ml: 1 }}
                         onClick={closeDrawer}>
                         {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                     </IconButton>
@@ -106,13 +90,34 @@ export default function Header() {
                         edge="start"
                         color="inherit"
                         aria-label="menu"
-                        sx={{ mx: 2 }}
+                        sx={{ ml: 1 }}
                         onClick={openDrawer}>
                         <MenuIcon />
                     </IconButton>
                 }
+                <Typography variant="h6" component="div" >
+                    مدیریت وبلاگ شخصی
+                </Typography>
+                <Box sx={{ flexGrow: 1 }}>
+
+                </Box>
+               
+                <Search dir='ltr'>
+                    <SearchIconWrapper >
+                        <SearchIcon />
+                    </SearchIconWrapper>
+                    <StyledInputBase
+                        placeholder="Search…"
+                        inputProps={{ 'aria-label': 'search' }}
+                    />
+                </Search>
+                <IconButton
+                    color="inherit"
+                >
+                    <PersonIcon />
+                </IconButton>
 
             </Toolbar>
-        </AppBar>
+        </StyledAppBar>
     )
 }
