@@ -94,17 +94,20 @@ export default function Slidebar() {
             open={drawerShape}
         >
             <List>
-                <ListItem disablePadding>
-                    <StyledListItemButton>
+                <Link to='../'>
+                    <ListItem disablePadding>
 
-                        <ListItemIcon sx={{ justifyContent: check ? 'center' : '' }}>
-                            <HomeIcon />
-                        </ListItemIcon>
-                        <ListItemText sx={{ opacity: check ? 1 : 0 }} >
-                            داشبورد
-                        </ListItemText>
-                    </StyledListItemButton>
-                </ListItem>
+                        <StyledListItemButton>
+
+                            <ListItemIcon sx={{ justifyContent: check ? 'center' : '' }}>
+                                <HomeIcon />
+                            </ListItemIcon>
+                            <ListItemText sx={{ opacity: check ? 1 : 0 }} >
+                                داشبورد
+                            </ListItemText>
+                        </StyledListItemButton>
+                    </ListItem>
+                </Link>
 
 
                 <ListItem disablePadding>
@@ -121,18 +124,22 @@ export default function Slidebar() {
                 </ListItem>
                 <Collapse in={open.chart} sx={{ paddingY: 0 }}>
                     <ListItem sx={{ paddingY: 0 }} >
-                        <StyledListItemButton sx={{ pr: 4, paddingY: 0.5 }}>
-                            <CommentIcon />
-                            <ListItemText primary="کامنت ها" sx={{ pr: 1 }} />
-                        </StyledListItemButton>
+                        <Link to="../comment-chart">
+                            <StyledListItemButton sx={{ pr: 4, paddingY: 0.5 }}>
+                                <CommentIcon />
+                                <ListItemText primary="کامنت ها" sx={{ pr: 1 }} />
+                            </StyledListItemButton>
+                        </Link>
                     </ListItem>
                 </Collapse>
                 <Collapse in={open.chart} >
                     <ListItem sx={{ paddingY: 0 }}>
-                        <StyledListItemButton sx={{ pr: 4, paddingY: 0.5 }}>
-                            <ArticleIcon />
-                            <ListItemText primary="مقاله ها" sx={{ pr: 1 }} />
-                        </StyledListItemButton>
+                        <Link to="../article-chart">
+                            <StyledListItemButton sx={{ pr: 4, paddingY: 0.5 }}>
+                                <ArticleIcon />
+                                <ListItemText primary="مقاله ها" sx={{ pr: 1 }} />
+                            </StyledListItemButton>
+                        </Link>
                     </ListItem>
                 </Collapse>
 
@@ -150,15 +157,17 @@ export default function Slidebar() {
                 </ListItem>
                 <Collapse in={open.text} sx={{ paddingY: 0 }}>
                     <ListItem sx={{ paddingY: 0 }} >
-                        <StyledListItemButton sx={{ pr: 4, paddingY: 0.5 }}>
-                            <TableRowsIcon />
-                            <ListItemText primary="تمام مقالات" sx={{ pr: 1 }} />
-                        </StyledListItemButton>
+                        <Link to="../all-article">
+                            <StyledListItemButton sx={{ pr: 4, paddingY: 0.5 }}>
+                                <TableRowsIcon />
+                                <ListItemText primary="تمام مقالات" sx={{ pr: 1 }} />
+                            </StyledListItemButton>
+                        </Link>
                     </ListItem>
                 </Collapse>
                 <Collapse in={open.text} >
                     <ListItem sx={{ paddingY: 0 }}>
-                        <Link to="add-article">
+                        <Link to="../add-article">
                             <StyledListItemButton sx={{ pr: 4, paddingY: 0.5 }}>
                                 <AddIcon />
                                 <ListItemText primary="افزودن " sx={{ pr: 1 }} />

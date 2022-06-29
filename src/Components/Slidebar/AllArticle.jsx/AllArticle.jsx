@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux'
 
 
 export default function AllArticle() {
-    const headers = useSelector((state) => state.addArticle.information.h1)
+    const headers = useSelector((state) => state.openDrawer.h1)
 
     return (
         <TableContainer component={Paper}>
