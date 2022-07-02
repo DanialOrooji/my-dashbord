@@ -4,11 +4,11 @@ import ImageUploading from "react-images-uploading";
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch } from 'react-redux'
-import info from '../../../redux/stateSlice'
+import {info} from '../../../redux/stateSlice'
 export default function AddArticl() {
     const dispatch = useDispatch()
     function sendInformation() {
-        dispatch(info())
+        dispatch(info(information))
     }
     const [images, setImages] = React.useState([]);
     const maxNumber = 69;

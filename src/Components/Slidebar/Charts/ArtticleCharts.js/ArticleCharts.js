@@ -1,22 +1,43 @@
 import React from "react";
-import { PieChart } from "react-minimal-pie-chart";
 import { Box} from '@mui/material'
-
+import Chart from 'react-apexcharts'
 
 export default function ArticleCharts() {
-    const myData = [
-        { title: "Dogs", value: 100, color: "orange" },
-        { title: "Cats", value: 50, color: "green" },
-        { title: "Dragons", value: 15, color: "purple" },
-      ];
+ const charts =  {
+          
+    series: [44, 55, 41, 17],
+    options: {
+      chart: {
+        type: 'donut',
+        
+      },
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 300
+          },
+          legend: {
+            position: 'top'
+          }
+        }
+      }],
+      labels: ["طلا", "نفت", "مس", "سرب"],
+      dataLabels: {
+        dropShadow: {
+          blur: 3,
+          opacity: 0.8
+        }
+      },
+
+    },
+  
+  
+  };
+
       return (
-        <Box  component="div" className="w-1/2 h-full flex items-center mx-auto">
-          <PieChart className="h-1/2"
-            // your data
-            data={myData}
-            // width and height of the view box
-            fill={false}
-          />
+        <Box  component="div" id="chart" className="w-1/2 h-full ">
+           <Chart  options={charts.options} series={charts.series} type="donut" />
         </Box>
       );
 }

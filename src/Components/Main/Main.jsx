@@ -6,7 +6,7 @@ import { Paper } from '@mui/material';
 import { useSelector } from 'react-redux'
 
 
-export default function Main({page}) {
+export default function Main({page,pagination}) {
     const check = useSelector((state) => state.openDrawer.check)
     return (
         <div dir='rtl'>
@@ -23,7 +23,9 @@ export default function Main({page}) {
                 lineBreak: 'auto',
                 borderRadius: 5}} >
                 {page}
+                {pagination}
             </Paper>
+            
         </div>
     );
 }
